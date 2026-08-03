@@ -1,4 +1,4 @@
-# Eco Link
+<img width="1902" height="877" alt="image" src="https://github.com/user-attachments/assets/bf894cd6-812e-4844-9131-7d8c76aeee8d" /># Eco Link
 
 An AI-powered B2B Circular Economy Platform that connects factories, recycling companies, and logistics providers through one unified digital ecosystem.
 
@@ -235,39 +235,55 @@ python manage.py runserver
 
 # Screenshots
 
-## Login
+## Onboarding
 
-> *(Add Screenshot Here)*
+<img width="1900" height="717" alt="image" src="https://github.com/user-attachments/assets/36908963-d0aa-4e88-b11e-d41e2e68ed7e" />
+<img width="1457" height="841" alt="image" src="https://github.com/user-attachments/assets/fb3dc8fc-59ad-44c9-9583-1e8ed8ae7545" />
+<img width="1030" height="785" alt="image" src="https://github.com/user-attachments/assets/6cfe2c8f-a043-463b-80c2-aa0ff69de69b" />
+
+## Subscriptions
+<img width="1122" height="877" alt="image" src="https://github.com/user-attachments/assets/2c85ff2c-1970-4010-95a7-8989d1e71253" />
+<img width="727" height="681" alt="image" src="https://github.com/user-attachments/assets/dbd57f8c-84ad-4942-9087-995d236579db" />
+
+
+## Login
+<img width="1901" height="876" alt="image" src="https://github.com/user-attachments/assets/a357a2d8-d207-444b-82c2-17af133417de" />
+
 
 ---
 
 ## Factory Dashboard
+<img width="1917" height="877" alt="image" src="https://github.com/user-attachments/assets/bb88b7bb-d7b9-4066-a152-93c5233d164b" />
+<img width="1917" height="871" alt="image" src="https://github.com/user-attachments/assets/2ed78e90-aba1-429e-816d-2f2a04870a71" />
 
-> *(Add Screenshot Here)*
 
 ---
 
 ## Marketplace
 
-> *(Add Screenshot Here)*
+<img width="1902" height="877" alt="image" src="https://github.com/user-attachments/assets/610298d3-3d2d-4ad5-890b-7bc37f1610d8" />
+
 
 ---
 
 ## Recycler Dashboard
+<img width="1917" height="872" alt="image" src="https://github.com/user-attachments/assets/6988ddbf-23e7-4f9b-a30e-9493622803e6" />
 
-> *(Add Screenshot Here)*
+
 
 ---
 
 ## Logistics Dashboard
 
-> *(Add Screenshot Here)*
+<img width="1916" height="783" alt="image" src="https://github.com/user-attachments/assets/1f305d8b-517e-467d-b289-f6c6b64b62d3" />
+
 
 ---
 
 ## Reports
 
-> *(Add Screenshot Here)*
+<img width="1917" height="878" alt="image" src="https://github.com/user-attachments/assets/d64dbd80-8ce7-42c2-9763-27e3802aa22d" />
+
 
 ---
 
