@@ -1,0 +1,94 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="ALEQdjdOqYNQpQ5fC5lL" name="‫الصفحة-1‬">
+    <mxGraphModel dx="2575" dy="1318" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=18;fontStyle=1;fontColor=#1A3C5E;" value="ECO LINK — AI Pipeline Diagram" vertex="1">
+          <mxGeometry height="30" width="900" x="100" y="14" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#2E86C1;fontColor=#1A3C5E;fontSize=10;fontStyle=1;" value="1. Waste Image Input&#xa;Factory uploads image via React UI&#xa;→ Stored to Azure Blob Storage" vertex="1">
+          <mxGeometry height="70" width="300" x="350" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="s2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF0C7;strokeColor=#F39C12;fontColor=#7D6608;fontSize=10;fontStyle=1;" value="2. API Call to AI Service&#xa;ASP.NET Core sends POST /classify&#xa;with image URL to FastAPI service" vertex="1">
+          <mxGeometry height="70" width="300" x="350" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=10;fontStyle=1;" value="3. Image Preprocessing&#xa;Resize · Normalize · Augment&#xa;OpenCV / PIL Pipeline" vertex="1">
+          <mxGeometry height="70" width="300" x="350" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="s4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=10;fontStyle=1;" value="4. CNN / ResNet Classification&#xa;Pre-trained model inference&#xa;Output: class probabilities" vertex="1">
+          <mxGeometry height="70" width="300" x="350" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="s5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=10;fontStyle=1;" value="5. Material Prediction&#xa;Top predicted material type&#xa;Confidence Score (%)" vertex="1">
+          <mxGeometry height="70" width="300" x="350" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="s6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=10;fontStyle=1;" value="6. EWC Code Prediction&#xa;European Waste Catalogue code&#xa;mapped from material type" vertex="1">
+          <mxGeometry height="70" width="300" x="350" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="s7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#1E8449;fontColor=#1A5E20;fontSize=10;fontStyle=1;" value="7. Recommendation Engine&#xa;Matches EWC code to certified Recyclers&#xa;Ranked by proximity · capacity · rating" vertex="1">
+          <mxGeometry height="70" width="300" x="350" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="s8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A9DFBF;strokeColor=#1E8449;fontColor=#1A5E20;fontSize=10;fontStyle=1;" value="8. Carbon Saving Estimation&#xa;CO₂ saved vs landfill baseline&#xa;Stored to CarbonRecords table" vertex="1">
+          <mxGeometry height="70" width="300" x="350" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="s9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF0C7;strokeColor=#F39C12;fontColor=#7D6608;fontSize=10;fontStyle=1;" value="9. Results Returned to Backend&#xa;JSON response: material · EWC · recyclers&#xa;· confidence · carbon saving" vertex="1">
+          <mxGeometry height="70" width="300" x="350" y="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="s10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#2E86C1;fontColor=#1A3C5E;fontSize=10;fontStyle=1;" value="10. Marketplace Listing Auto-Created&#xa;WasteBatch updated with EWC code&#xa;Listing available on Marketplace" vertex="1">
+          <mxGeometry height="70" width="300" x="350" y="1160" as="geometry" />
+        </mxCell>
+        <mxCell id="note1" parent="1" style="rounded=1;fillColor=#F5F5F5;strokeColor=#AAAAAA;fontSize=8;dashed=1;" value="Azure Blob Storage&#xa;Stores images" vertex="1">
+          <mxGeometry height="45" width="140" x="690" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="note2" parent="1" style="rounded=1;fillColor=#F5F5F5;strokeColor=#AAAAAA;fontSize=8;dashed=1;" value="FastAPI&#xa;Python microservice" vertex="1">
+          <mxGeometry height="45" width="140" x="690" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="note3" parent="1" style="rounded=1;fillColor=#F5F5F5;strokeColor=#AAAAAA;fontSize=8;dashed=1;" value="ResNet-50 / EfficientNet&#xa;PyTorch / TensorFlow" vertex="1">
+          <mxGeometry height="45" width="140" x="690" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="note4" parent="1" style="rounded=1;fillColor=#F5F5F5;strokeColor=#AAAAAA;fontSize=8;dashed=1;" value="Azure ML&#xa;Model Registry" vertex="1">
+          <mxGeometry height="45" width="140" x="690" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="n1e" edge="1" parent="1" source="note1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#AAAAAA;dashed=1;fontSize=8;" target="s1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n2e" edge="1" parent="1" source="note2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#AAAAAA;dashed=1;fontSize=8;" target="s2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n3e" edge="1" parent="1" source="note3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#AAAAAA;dashed=1;fontSize=8;" target="s4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n4e" edge="1" parent="1" source="note4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#AAAAAA;dashed=1;fontSize=8;" target="s7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a12" edge="1" parent="1" source="s1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2E86C1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="s2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a23" edge="1" parent="1" source="s2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#F39C12;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="s3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a34" edge="1" parent="1" source="s3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#7D3C98;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="s4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a45" edge="1" parent="1" source="s4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#7D3C98;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="s5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a56" edge="1" parent="1" source="s5" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#7D3C98;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="s6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a67" edge="1" parent="1" source="s6" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1E8449;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="s7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a78" edge="1" parent="1" source="s7" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1E8449;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="s8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a89" edge="1" parent="1" source="s8" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#F39C12;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="s9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a910" edge="1" parent="1" source="s9" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2E86C1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="s10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,105 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="MVr8LaUE7KUQ4-2NYPxg" name="‫الصفحة-1‬">
+    <mxGraphModel dx="1471" dy="753" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=18;fontStyle=1;fontColor=#1A3C5E;" value="ECO LINK — Logistics Workflow" vertex="1">
+          <mxGeometry height="30" width="1250" x="200" y="14" as="geometry" />
+        </mxCell>
+        <mxCell id="rc1" parent="1" style="rounded=1;fillColor=#D5E8D4;strokeColor=#1E8449;fontColor=#1A5E20;fontSize=10;fontStyle=1;" value="Recycler: Transaction Confirmed&#xa;→ Requests Shipment via Portal" vertex="1">
+          <mxGeometry height="60" width="260" x="60" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ss_bg" parent="1" style="swimlane;startSize=26;fillColor=#FEF9E7;strokeColor=#F39C12;fontColor=#7D6608;fontStyle=1;fontSize=10;rounded=1;" value="Shipment Service  —  ASP.NET Core" vertex="1">
+          <mxGeometry height="300" width="650" x="60" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="ss1" parent="ss_bg" style="rounded=1;fillColor=#FEF0C7;strokeColor=#F39C12;fontSize=9;" value="Create Shipment Record&#xa;(Status: PENDING)" vertex="1">
+          <mxGeometry height="55" width="190" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ss2" parent="ss_bg" style="rounded=1;fillColor=#FEF0C7;strokeColor=#F39C12;fontSize=9;" value="Select Logistics Provider" vertex="1">
+          <mxGeometry height="55" width="190" x="240" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ss3" parent="ss_bg" style="rounded=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=9;" value="AI Route Optimization&#xa;(Shortest path + compliance zones)" vertex="1">
+          <mxGeometry height="60" width="190" x="20" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="ss4" parent="ss_bg" style="rounded=1;fillColor=#FAD7A0;strokeColor=#D35400;fontColor=#7D4600;fontSize=9;" value="Assign Driver + Vehicle&#xa;Check availability" vertex="1">
+          <mxGeometry height="60" width="190" x="240" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="ss5" parent="ss_bg" style="rounded=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=9;" value="Notify Provider + Driver&#xa;(Push Notification)" vertex="1">
+          <mxGeometry height="55" width="220" x="130" y="215" as="geometry" />
+        </mxCell>
+        <mxCell id="lp_bg" parent="1" style="swimlane;startSize=26;fillColor=#FDF2E9;strokeColor=#D35400;fontColor=#7D4600;fontStyle=1;fontSize=10;rounded=1;" value="Logistics Provider (Driver App)" vertex="1">
+          <mxGeometry height="300" width="400" x="760" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="lp1" parent="lp_bg" style="rounded=1;fillColor=#FAD7A0;strokeColor=#D35400;fontSize=9;" value="Driver Receives Assignment" vertex="1">
+          <mxGeometry height="50" width="200" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lp2" parent="lp_bg" style="rounded=1;fillColor=#FAD7A0;strokeColor=#D35400;fontSize=9;" value="Pickup Waste Batch&#xa;from Factory Location" vertex="1">
+          <mxGeometry height="55" width="200" x="20" y="115" as="geometry" />
+        </mxCell>
+        <mxCell id="lp3" parent="lp_bg" style="rounded=1;fillColor=#FAD7A0;strokeColor=#D35400;fontSize=9;" value="Update Status: IN TRANSIT&#xa;GPS location streamed" vertex="1">
+          <mxGeometry height="55" width="200" x="20" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="lp4" parent="lp_bg" style="rounded=1;fillColor=#FAD7A0;strokeColor=#D35400;fontSize=9;" value="Delivered to Recycler Facility" vertex="1">
+          <mxGeometry height="55" width="140" x="240" y="115" as="geometry" />
+        </mxCell>
+        <mxCell id="lp5" parent="lp_bg" style="rounded=1;fillColor=#D5E8D4;strokeColor=#1E8449;fontColor=#1A5E20;fontSize=9;" value="Update Status: DELIVERED" vertex="1">
+          <mxGeometry height="55" width="140" x="240" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="tdb" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#FAD7A0;strokeColor=#D35400;fontColor=#7D4600;fontSize=9;fontStyle=1;" value="ShipmentTracking Table&#xa;(Lat/Lng · Timestamp · Status recorded on each update)" vertex="1">
+          <mxGeometry height="80" width="400" x="760" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="comp1" parent="1" style="rounded=1;fillColor=#D5E8D4;strokeColor=#1E8449;fontColor=#1A5E20;fontSize=10;fontStyle=1;" value="Recycler Confirms Receipt&#xa;+ Scans DPP QR Code" vertex="1">
+          <mxGeometry height="60" width="280" x="60" y="545" as="geometry" />
+        </mxCell>
+        <mxCell id="comp2" parent="1" style="rounded=1;fillColor=#A9DFBF;strokeColor=#1E8449;fontColor=#1A5E20;fontSize=10;fontStyle=1;" value="Shipment Closed · Carbon Record Finalized&#xa;Compliance Certificate Updated · ESG Logs Updated" vertex="1">
+          <mxGeometry height="60" width="500" x="60" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="la1" edge="1" parent="1" source="rc1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1E8449;strokeWidth=2;" target="ss_bg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="la2" edge="1" parent="1" source="ss1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#F39C12;strokeWidth=1.5;" target="ss2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="la3" edge="1" parent="1" source="ss2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#7D3C98;strokeWidth=1.5;" target="ss3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="la4" edge="1" parent="1" source="ss2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D35400;strokeWidth=1.5;" target="ss4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="la5" edge="1" parent="1" source="ss4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D6B656;strokeWidth=1.5;" target="ss5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="la6" edge="1" parent="1" source="ss_bg" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D35400;strokeWidth=2;" target="lp_bg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="la7" edge="1" parent="1" source="lp1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D35400;strokeWidth=1.5;" target="lp2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="la8" edge="1" parent="1" source="lp2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D35400;strokeWidth=1.5;" target="lp3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="la9" edge="1" parent="1" source="lp2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D35400;strokeWidth=1.5;" target="lp4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="la10" edge="1" parent="1" source="lp4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1E8449;strokeWidth=1.5;" target="lp5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="la11" edge="1" parent="1" source="lp3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D35400;strokeWidth=1.5;dashed=1;" target="tdb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="la12" edge="1" parent="1" source="lp5" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1E8449;strokeWidth=2;" target="comp1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="960" y="490" />
+              <mxPoint x="200" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="la13" edge="1" parent="1" source="comp1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1E8449;strokeWidth=2;" target="comp2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

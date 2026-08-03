@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0"/><mxCell id="1" parent="0"/>
+    <mxCell id="t1" value="ECO LINK — Sequence Diagram: Factory → Marketplace → Recycler → Logistics" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=16;fontStyle=1;fontColor=#1A3C5E;" vertex="1" parent="1"><mxGeometry x="40" y="14" width="1570" height="30" as="geometry"/></mxCell>
+
+    <!-- Lifelines -->
+    <mxCell id="lf_factory" value="Factory" style="shape=umlLifeline;perimeter=mxPerimeter.rectanglePerimeter;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#2E86C1;fontColor=#1A3C5E;fontStyle=1;fontSize=10;" vertex="1" parent="1"><mxGeometry x="60" y="60" width="110" height="900" as="geometry"/></mxCell>
+    <mxCell id="lf_backend" value="Backend API&#xa;(.NET 8)" style="shape=umlLifeline;perimeter=mxPerimeter.rectanglePerimeter;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#1E8449;fontColor=#1A5E20;fontStyle=1;fontSize=10;" vertex="1" parent="1"><mxGeometry x="290" y="60" width="110" height="900" as="geometry"/></mxCell>
+    <mxCell id="lf_ai" value="AI Service&#xa;(Python)" style="shape=umlLifeline;perimeter=mxPerimeter.rectanglePerimeter;whiteSpace=wrap;html=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontStyle=1;fontSize=10;" vertex="1" parent="1"><mxGeometry x="530" y="60" width="110" height="900" as="geometry"/></mxCell>
+    <mxCell id="lf_db" value="SQL Server&#xa;Database" style="shape=umlLifeline;perimeter=mxPerimeter.rectanglePerimeter;whiteSpace=wrap;html=1;fillColor=#FAD7A0;strokeColor=#D35400;fontColor=#7D4600;fontStyle=1;fontSize=10;" vertex="1" parent="1"><mxGeometry x="770" y="60" width="110" height="900" as="geometry"/></mxCell>
+    <mxCell id="lf_recycler" value="Recycler" style="shape=umlLifeline;perimeter=mxPerimeter.rectanglePerimeter;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#1E8449;fontColor=#1A5E20;fontStyle=1;fontSize=10;" vertex="1" parent="1"><mxGeometry x="1010" y="60" width="110" height="900" as="geometry"/></mxCell>
+    <mxCell id="lf_notif" value="Notification&#xa;Service" style="shape=umlLifeline;perimeter=mxPerimeter.rectanglePerimeter;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#7D4600;fontStyle=1;fontSize=10;" vertex="1" parent="1"><mxGeometry x="1240" y="60" width="110" height="900" as="geometry"/></mxCell>
+    <mxCell id="lf_logistics" value="Logistics&#xa;Provider" style="shape=umlLifeline;perimeter=mxPerimeter.rectanglePerimeter;whiteSpace=wrap;html=1;fillColor=#FAD7A0;strokeColor=#D35400;fontColor=#7D4600;fontStyle=1;fontSize=10;" vertex="1" parent="1"><mxGeometry x="1470" y="60" width="110" height="900" as="geometry"/></mxCell>
+
+    <!-- Messages -->
+    <!-- 1 -->
+    <mxCell id="m1" value="1. POST /waste-batches (create batch)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2E86C1;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_factory" target="lf_backend"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="115" y="200"/><mxPoint x="345" y="200"/></Array></mxGeometry></mxCell>
+    <!-- 2 -->
+    <mxCell id="m2" value="2. INSERT WasteBatch" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D35400;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_backend" target="lf_db"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="345" y="230"/><mxPoint x="825" y="230"/></Array></mxGeometry></mxCell>
+    <!-- 3 -->
+    <mxCell id="m3" value="3. POST /classify (image URL)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#7D3C98;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_backend" target="lf_ai"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="345" y="270"/><mxPoint x="585" y="270"/></Array></mxGeometry></mxCell>
+    <!-- 4 -->
+    <mxCell id="m4" value="4. Return: material · EWC · confidence · carbon" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#7D3C98;strokeWidth=1.5;dashed=1;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_ai" target="lf_backend"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="585" y="310"/><mxPoint x="345" y="310"/></Array></mxGeometry></mxCell>
+    <!-- 5 -->
+    <mxCell id="m5" value="5. INSERT MaterialPrediction · UPDATE WasteBatch EWCCode" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D35400;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_backend" target="lf_db"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="345" y="350"/><mxPoint x="825" y="350"/></Array></mxGeometry></mxCell>
+    <!-- 6 -->
+    <mxCell id="m6" value="6. Return classification results to Factory" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2E86C1;strokeWidth=1.5;dashed=1;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_backend" target="lf_factory"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="345" y="390"/><mxPoint x="115" y="390"/></Array></mxGeometry></mxCell>
+    <!-- 7 -->
+    <mxCell id="m7" value="7. POST /marketplace/listings (create listing)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2E86C1;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_factory" target="lf_backend"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="115" y="430"/><mxPoint x="345" y="430"/></Array></mxGeometry></mxCell>
+    <!-- 8 -->
+    <mxCell id="m8" value="8. INSERT MarketplaceListing" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D35400;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_backend" target="lf_db"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="345" y="460"/><mxPoint x="825" y="460"/></Array></mxGeometry></mxCell>
+    <!-- 9 -->
+    <mxCell id="m9" value="9. GET /marketplace/listings (browse)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1E8449;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_recycler" target="lf_backend"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1065" y="500"/><mxPoint x="345" y="500"/></Array></mxGeometry></mxCell>
+    <!-- 10 -->
+    <mxCell id="m10" value="10. POST /auctions/{id}/bids" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1E8449;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_recycler" target="lf_backend"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1065" y="540"/><mxPoint x="345" y="540"/></Array></mxGeometry></mxCell>
+    <!-- 11 -->
+    <mxCell id="m11" value="11. INSERT Bid" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D35400;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_backend" target="lf_db"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="345" y="570"/><mxPoint x="825" y="570"/></Array></mxGeometry></mxCell>
+    <!-- 12 -->
+    <mxCell id="m12" value="12. Notify Factory of new bid" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D6B656;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_backend" target="lf_notif"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="345" y="600"/><mxPoint x="1295" y="600"/></Array></mxGeometry></mxCell>
+    <!-- 13 -->
+    <mxCell id="m13" value="13. POST /transactions (accept bid)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2E86C1;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_factory" target="lf_backend"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="115" y="640"/><mxPoint x="345" y="640"/></Array></mxGeometry></mxCell>
+    <!-- 14 -->
+    <mxCell id="m14" value="14. INSERT Transaction · UPDATE Listing status=SOLD" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D35400;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_backend" target="lf_db"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="345" y="670"/><mxPoint x="825" y="670"/></Array></mxGeometry></mxCell>
+    <!-- 15 -->
+    <mxCell id="m15" value="15. Generate DPP · INSERT DigitalProductPassport" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D35400;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_backend" target="lf_db"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="345" y="700"/><mxPoint x="825" y="700"/></Array></mxGeometry></mxCell>
+    <!-- 16 -->
+    <mxCell id="m16" value="16. Notify Recycler: Transaction confirmed" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D6B656;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_backend" target="lf_notif"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="345" y="730"/><mxPoint x="1295" y="730"/></Array></mxGeometry></mxCell>
+    <!-- 17 -->
+    <mxCell id="m17" value="17. POST /shipments (request logistics)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1E8449;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_recycler" target="lf_backend"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1065" y="770"/><mxPoint x="345" y="770"/></Array></mxGeometry></mxCell>
+    <!-- 18 -->
+    <mxCell id="m18" value="18. Assign Driver · Route Optimized · Notify Provider" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D35400;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_backend" target="lf_logistics"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="345" y="810"/><mxPoint x="1525" y="810"/></Array></mxGeometry></mxCell>
+    <!-- 19 -->
+    <mxCell id="m19" value="19. UPDATE Shipment status=DELIVERED" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D35400;strokeWidth=1.5;dashed=1;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_logistics" target="lf_backend"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1525" y="850"/><mxPoint x="345" y="850"/></Array></mxGeometry></mxCell>
+    <!-- 20 -->
+    <mxCell id="m20" value="20. INSERT CarbonRecord · Log AuditLog" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D35400;strokeWidth=1.5;fontSize=8;endArrow=open;" edge="1" parent="1" source="lf_backend" target="lf_db"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="345" y="890"/><mxPoint x="825" y="890"/></Array></mxGeometry></mxCell>
+  </root>
+</mxGraphModel>

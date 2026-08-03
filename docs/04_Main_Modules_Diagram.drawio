@@ -1,0 +1,106 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="hhEh0U6QkPCFJg-Kp44N" name="‫الصفحة-1‬">
+    <mxGraphModel dx="1471" dy="753" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=20;fontStyle=1;fontColor=#1A3C5E;" value="ECO LINK — Main Modules Diagram" vertex="1">
+          <mxGeometry height="34" width="1250" x="200" y="18" as="geometry" />
+        </mxCell>
+        <mxCell id="core" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1A3C5E;strokeColor=#0D2136;fontColor=#FFFFFF;fontSize=13;fontStyle=1;" value="ECO LINK&#xa;Platform Core" vertex="1">
+          <mxGeometry height="100" width="200" x="640" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF0C7;strokeColor=#F39C12;fontColor=#7D6608;fontSize=9;align=left;" value="01 Authentication Module&#xa;─────────────────&#xa;• JWT Token Issuance&#xa;• BCrypt Password Hashing&#xa;• Refresh Token Rotation&#xa;• Session Management" vertex="1">
+          <mxGeometry height="105" width="245" x="60" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF0C7;strokeColor=#F39C12;fontColor=#7D6608;fontSize=9;align=left;" value="02 RBAC Module&#xa;─────────────────&#xa;• Role Definitions (5 roles)&#xa;• Permission Policies&#xa;• Resource-Level Authorization&#xa;• Middleware Enforcement" vertex="1">
+          <mxGeometry height="105" width="245" x="360" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#1E8449;fontColor=#1A5E20;fontSize=9;align=left;" value="03 User &amp; Company Module&#xa;─────────────────&#xa;• Registration &amp; Verification&#xa;• Company Profile Management&#xa;• Role Assignment&#xa;• KYC Document Upload" vertex="1">
+          <mxGeometry height="105" width="245" x="660" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#1E8449;fontColor=#1A5E20;fontSize=9;align=left;" value="04 Waste Management Module&#xa;─────────────────&#xa;• Waste Batch Creation&#xa;• Image Upload (Blob Storage)&#xa;• AI Classification Request&#xa;• EWC Code Assignment" vertex="1">
+          <mxGeometry height="105" width="245" x="960" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=9;align=left;" value="05 AI Service Module&#xa;─────────────────&#xa;• CNN/ResNet Classification&#xa;• Material Prediction&#xa;• EWC Code Prediction&#xa;• Recommendation Engine&#xa;• Carbon Saving Estimate" vertex="1">
+          <mxGeometry height="120" width="245" x="1260" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#2E86C1;fontColor=#1A3C5E;fontSize=9;align=left;" value="06 Marketplace Module&#xa;─────────────────&#xa;• Listing Creation&#xa;• Search &amp; Filter&#xa;• Pricing Engine&#xa;• Transaction Processing" vertex="1">
+          <mxGeometry height="105" width="245" x="60" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="m7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#2E86C1;fontColor=#1A3C5E;fontSize=9;align=left;" value="07 Auction &amp; Bidding Module&#xa;─────────────────&#xa;• Auction Lifecycle Management&#xa;• Real-time Bidding&#xa;• Auto-Bidding Engine&#xa;• Winner Determination" vertex="1">
+          <mxGeometry height="105" width="245" x="360" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="m8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#2E86C1;fontColor=#1A3C5E;fontSize=9;align=left;" value="08 Digital Product Passport&#xa;─────────────────&#xa;• DPP Record Generation&#xa;• QR Code Creation&#xa;• Material Chain Tracking&#xa;• EU Compliance Alignment" vertex="1">
+          <mxGeometry height="105" width="245" x="960" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="m9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAD7A0;strokeColor=#D35400;fontColor=#7D4600;fontSize=9;align=left;" value="09 Logistics &amp; Shipment Module&#xa;─────────────────&#xa;• Shipment Scheduling&#xa;• Route Optimization&#xa;• Driver &amp; Vehicle Mgmt&#xa;• Live GPS Tracking" vertex="1">
+          <mxGeometry height="105" width="245" x="1260" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="m10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A9DFBF;strokeColor=#1E8449;fontColor=#1A5E20;fontSize=9;align=left;" value="10 Carbon Analytics Module&#xa;─────────────────&#xa;• CO₂ Footprint Calculation&#xa;• Carbon Record Storage&#xa;• ESG Metric Aggregation&#xa;• Trend Reporting" vertex="1">
+          <mxGeometry height="105" width="245" x="60" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="m11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A9DFBF;strokeColor=#1E8449;fontColor=#1A5E20;fontSize=9;align=left;" value="11 Compliance &amp; Government Module&#xa;─────────────────&#xa;• Compliance Certificate Mgmt&#xa;• Government Monitoring Portal&#xa;• Regulatory Report Generation&#xa;• Violation Flagging" vertex="1">
+          <mxGeometry height="105" width="245" x="360" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="m12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontColor=#7D4600;fontSize=9;align=left;" value="12 Notification Module&#xa;─────────────────&#xa;• Email Notifications&#xa;• In-App Alerts&#xa;• Push Notifications&#xa;• Azure Service Bus Events" vertex="1">
+          <mxGeometry height="105" width="245" x="960" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="m13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontColor=#7B0000;fontSize=9;align=left;" value="13 Admin Module&#xa;─────────────────&#xa;• User &amp; Company Management&#xa;• System Configuration&#xa;• Audit Log Viewer&#xa;• Analytics &amp; Reports" vertex="1">
+          <mxGeometry height="105" width="245" x="1260" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="m14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#27AE60;fontColor=#1A5E20;fontSize=9;align=left;" value="14 Reporting Module&#xa;─────────────────&#xa;• ESG Report Export (PDF)&#xa;• Carbon Summary Reports&#xa;• Compliance Reports&#xa;• Analytics Dashboards" vertex="1">
+          <mxGeometry height="105" width="245" x="60" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="m15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#2874A6;fontColor=#1A3C5E;fontSize=9;align=left;" value="15 Transaction &amp; Payment Module&#xa;─────────────────&#xa;• Transaction Lifecycle&#xa;• Payment Gateway Integration&#xa;• Invoice Generation&#xa;• Financial Reconciliation" vertex="1">
+          <mxGeometry height="105" width="245" x="360" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="m1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#F39C12;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0.5;entryY=0;" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="m2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#F39C12;strokeWidth=1.5;" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="m3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1E8449;strokeWidth=1.5;" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="m4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1E8449;strokeWidth=1.5;" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="m5" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#7D3C98;strokeWidth=1.5;" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="m6" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2E86C1;strokeWidth=1.5;" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="m7" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2E86C1;strokeWidth=1.5;" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="m8" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2E86C1;strokeWidth=1.5;" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="m9" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D35400;strokeWidth=1.5;" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="m10" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1E8449;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.8;" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="m11" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#27AE60;strokeWidth=1.5;" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="m12" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#D6B656;strokeWidth=1.5;" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="m13" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#B85450;strokeWidth=1.5;" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="m14" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#27AE60;strokeWidth=1.5;" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="m15" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2874A6;strokeWidth=1.5;" target="core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

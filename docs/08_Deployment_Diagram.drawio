@@ -1,0 +1,118 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="c3VrcEllcY1S5PuK5H_L" name="‫الصفحة-1‬">
+    <mxGraphModel dx="1717" dy="878" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=18;fontStyle=1;fontColor=#1A3C5E;" value="ECO LINK — Deployment Diagram" vertex="1">
+          <mxGeometry height="30" width="1250" x="200" y="14" as="geometry" />
+        </mxCell>
+        <mxCell id="dev" parent="1" style="rounded=1;fillColor=#D6EAF8;strokeColor=#2E86C1;fontColor=#1A3C5E;fontSize=10;fontStyle=1;" value="Developer Workstation&#xa;(VS Code / Rider)" vertex="1">
+          <mxGeometry height="65" width="180" x="60" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="gh" parent="1" style="rounded=1;fillColor=#1A3C5E;strokeColor=#0D2136;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" value="GitHub Repository&#xa;(Source Control)" vertex="1">
+          <mxGeometry height="65" width="180" x="310" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cicd" parent="1" style="swimlane;startSize=26;fillColor=#FEF0C7;strokeColor=#F39C12;fontColor=#7D6608;fontStyle=1;fontSize=10;rounded=1;" value="GitHub Actions&#xa;CI/CD Pipeline" vertex="1">
+          <mxGeometry height="130" width="320" x="560" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ci1" parent="cicd" style="rounded=1;fillColor=#FEF9E7;strokeColor=#F39C12;fontSize=8;" value="Build (.NET + React)" vertex="1">
+          <mxGeometry height="35" width="130" x="10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ci2" parent="cicd" style="rounded=1;fillColor=#FEF9E7;strokeColor=#F39C12;fontSize=8;" value="Run Unit Tests" vertex="1">
+          <mxGeometry height="35" width="130" x="155" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ci3" parent="cicd" style="rounded=1;fillColor=#FEF9E7;strokeColor=#F39C12;fontSize=8;" value="Docker Build &amp; Push&#xa;→ ACR" vertex="1">
+          <mxGeometry height="35" width="130" x="10" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="ci4" parent="cicd" style="rounded=1;fillColor=#FEF9E7;strokeColor=#F39C12;fontSize=8;" value="Deploy to Azure&#xa;App Service" vertex="1">
+          <mxGeometry height="35" width="130" x="155" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="azure" parent="1" style="swimlane;startSize=30;fillColor=#EBF5FB;strokeColor=#1A3C5E;fontColor=#1A3C5E;fontStyle=1;fontSize=12;rounded=1;" value="Microsoft Azure Cloud" vertex="1">
+          <mxGeometry height="580" width="1570" x="40" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="acr" parent="azure" style="rounded=1;fillColor=#F8CECC;strokeColor=#B85450;fontColor=#7B0000;fontSize=9;fontStyle=1;" value="Azure Container Registry&#xa;(Docker Images)" vertex="1">
+          <mxGeometry height="60" width="190" x="20" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="afd" parent="azure" style="rounded=1;fillColor=#FEF0C7;strokeColor=#F39C12;fontColor=#7D6608;fontSize=9;fontStyle=1;" value="Azure Front Door&#xa;WAF · CDN · DDoS Protection" vertex="1">
+          <mxGeometry height="60" width="220" x="650" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="apps_bg" parent="azure" style="swimlane;startSize=24;fillColor=#F0F9EF;strokeColor=#1E8449;fontColor=#1A5E20;fontStyle=1;fontSize=10;rounded=1;" value="Azure App Services (Containers)" vertex="1">
+          <mxGeometry height="130" width="800" x="260" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="app1" parent="apps_bg" style="rounded=1;fillColor=#D5E8D4;strokeColor=#1E8449;fontSize=8;fontStyle=1;" value="Frontend App&#xa;(React SPA)&#xa;Docker Container" vertex="1">
+          <mxGeometry height="75" width="175" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="app2" parent="apps_bg" style="rounded=1;fillColor=#D5E8D4;strokeColor=#1E8449;fontSize=8;fontStyle=1;" value="Backend API&#xa;(ASP.NET Core .NET 8)&#xa;Docker Container" vertex="1">
+          <mxGeometry height="75" width="175" x="215" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="app3" parent="apps_bg" style="rounded=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=8;fontStyle=1;" value="AI Service&#xa;(Python FastAPI)&#xa;Docker Container" vertex="1">
+          <mxGeometry height="75" width="175" x="410" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="app4" parent="apps_bg" style="rounded=1;fillColor=#D5E8D4;strokeColor=#1E8449;fontSize=8;fontStyle=1;" value="Notification Worker&#xa;(Background Service)&#xa;Docker Container" vertex="1">
+          <mxGeometry height="75" width="175" x="605" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="data_bg" parent="azure" style="swimlane;startSize=24;fillColor=#F5F5F5;strokeColor=#555;fontColor=#333;fontStyle=1;fontSize=10;rounded=1;" value="Data &amp; Storage Services" vertex="1">
+          <mxGeometry height="130" width="800" x="260" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="d1" parent="data_bg" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#2E86C1;fontSize=8;fontStyle=1;" value="Azure SQL Server&#xa;(Primary + Read Replica)" vertex="1">
+          <mxGeometry height="80" width="165" x="20" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" parent="data_bg" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#7D3C98;fontSize=8;fontStyle=1;" value="Azure Blob Storage&#xa;(Images · QR · Docs)" vertex="1">
+          <mxGeometry height="80" width="165" x="205" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d3" parent="data_bg" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontSize=8;fontStyle=1;" value="Azure Redis Cache" vertex="1">
+          <mxGeometry height="80" width="165" x="390" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d4" parent="data_bg" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=8;fontStyle=1;" value="Azure Service Bus&#xa;(Message Queue)" vertex="1">
+          <mxGeometry height="80" width="165" x="575" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sec_bg" parent="azure" style="swimlane;startSize=24;fillColor=#FEF9E7;strokeColor=#F39C12;fontColor=#7D6608;fontStyle=1;fontSize=10;rounded=1;" value="Security &amp; Observability" vertex="1">
+          <mxGeometry height="90" width="800" x="260" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="sec1" parent="sec_bg" style="rounded=1;fillColor=#FFE6E6;strokeColor=#C00;fontSize=8;" value="Azure Key Vault&#xa;(Secrets · Certs)" vertex="1">
+          <mxGeometry height="45" width="175" x="20" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sec2" parent="sec_bg" style="rounded=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=8;" value="Azure Monitor&#xa;(Metrics · Alerts)" vertex="1">
+          <mxGeometry height="45" width="175" x="210" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sec3" parent="sec_bg" style="rounded=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=8;" value="Application Insights&#xa;(APM · Tracing)" vertex="1">
+          <mxGeometry height="45" width="175" x="400" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sec4" parent="sec_bg" style="rounded=1;fillColor=#FEF0C7;strokeColor=#F39C12;fontSize=8;" value="Azure API Management&#xa;(Gateway · Throttle)" vertex="1">
+          <mxGeometry height="45" width="190" x="590" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" edge="1" parent="1" source="dev" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#2E86C1;strokeWidth=2;" target="gh">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a1lbl" connectable="0" parent="a1" style="edgeLabel;fontSize=8;" value="git push" vertex="1">
+          <mxGeometry relative="0.5" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" edge="1" parent="1" source="gh" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#F39C12;strokeWidth=2;" target="cicd">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a2lbl" connectable="0" parent="a2" style="edgeLabel;fontSize=8;" value="trigger workflow" vertex="1">
+          <mxGeometry relative="0.5" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" edge="1" parent="1" source="cicd" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#B85450;strokeWidth=2;" target="acr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a3lbl" connectable="0" parent="a3" style="edgeLabel;fontSize=8;" value="docker push" vertex="1">
+          <mxGeometry relative="0.5" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" edge="1" parent="1" source="acr" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1E8449;strokeWidth=2;" target="apps_bg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a4lbl" connectable="0" parent="a4" style="edgeLabel;fontSize=8;" value="pull image &amp; deploy" vertex="1">
+          <mxGeometry relative="0.5" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" edge="1" parent="1" source="apps_bg" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#1E8449;strokeWidth=2;" target="data_bg">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a5lbl" connectable="0" parent="a5" style="edgeLabel;fontSize=8;" value="EF Core / SDK" vertex="1">
+          <mxGeometry relative="0.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
