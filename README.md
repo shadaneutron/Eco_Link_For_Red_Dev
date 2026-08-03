@@ -1,162 +1,325 @@
 # Eco Link
 
-## Project Overview
-Eco Link is an AI-powered B2B Circular Economy Platform connecting factories, recycling companies, and logistics providers. The platform streamlines waste byproduct management, matching waste-generating industries with certified recyclers, optimizing route dispatching for logistics providers, and ensuring absolute legal compliance.
+An AI-powered B2B Circular Economy Platform that connects factories, recycling companies, and logistics providers through one unified digital ecosystem.
+
+Eco Link helps industrial organizations manage waste more efficiently by providing a centralized marketplace, digital compliance tools, shipment tracking, and sustainability reporting.
 
 ---
 
-## Features
+# Project Overview
 
-### Current
-- **React Frontend Structure**: A clean, modular TypeScript-based React framework.
-- **Enterprise UI**: Beautiful, dashboard-oriented design pages built for enterprise scale.
-- **User Flows**: Fully navigable interfaces showcasing dashboards, listings, bidding, and checkout.
-- **Design System**: Harmonized typography, colors, layout structures, and styling tokens.
-- **Initial Django Backend Architecture**: Skeleton configuration setup ready for app integration.
+Industrial waste management is often fragmented, relying on manual communication, paper-based documentation, and disconnected stakeholders.
 
-### Planned
-- **Authentication**: Secure role-based login and authorization for factories, recyclers, and logisticians.
-- **Marketplace Engine**: Automated matching algorithm and live bidding bidding pools.
-- **AI Waste Classification**: Automated material assessment, grading, and validation using vision-based systems.
-- **Shipment Management**: GPS route optimization, dispatch logs, and EEAA-compliant digital manifests.
-- **ESG Reports**: Real-time carbon offset telemetry and sustainability verification.
-- **Payment Integration**: Secure, robust transaction escrows and payment pipelines.
+Eco Link addresses these challenges by providing a scalable platform that enables:
+
+- Digital waste management
+- AI-assisted material classification
+- B2B marketplace and auctions
+- Logistics coordination
+- Regulatory compliance
+- ESG & sustainability reporting
+
+The project follows a modular architecture that allows each stakeholder to access a dedicated workspace while sharing the same platform and design system.
 
 ---
 
-## Project Structure
+# Project Structure
 
-- **frontend/**
-  Contains the React application codebase, user interfaces, components, and pages.
-- **backend/**
-  Contains the Django backend architecture, configuration files, and starter modules.
-- **design/**
-  Contains Figma design files, wireframes, and design system assets.
-- **docs/**
-  Contains system documentation, legal compliance papers, and architecture drafts.
-- **assets/**
-  Contains media, logos, and branding images.
+```text
+Eco_Link_For_Red_Dev/
 
----
-
-## Frontend Architecture
-
-- **components**: Reusable presentation widgets (e.g., Header, HeroSection, ValuePropositions).
-- **layouts**: Structural shell components defining navigation structures and sidebars.
-- **pages**: Main views corresponding to target routes (e.g., RecyclerDashboard, UploadWastePage, SubscriptionPlansPage).
-- **routes**: Declarative routing declarations mapping paths to view pages.
-- **hooks**: Shared React custom hooks for lifecycle events and state triggers.
-- **contexts**: Global React Context state providers (e.g., authentication, settings).
-- **services**: API communication clients and asynchronous fetch wrappers.
-- **styles**: Global stylesheets, vanilla CSS, and tailwind utilities configuration.
-- **types**: Shared TypeScript interface declarations and domain types.
-- **utils**: Generic helper functions, formatters, and utility logic.
+├── frontend/          # React Frontend codebase
+├── backend/           # Django Backend codebase
+├── design/            # UI/UX Design Assets (Figma designs & PDFs)
+├── docs/              # Project Documentation
+├── assets/            # Logos, icons, and branding media
+├── README.md          # Project guide
+└── .gitignore         # Global Git ignore rules
+```
 
 ---
 
-## Backend Architecture
+# Frontend Structure
 
-- **config**: Root project settings, middleware, database routing, and primary URL routes configuration.
-- **apps**: Pluggable business apps managing modular domain logic.
-- **authentication**: Token-based identity validation and role management.
-- **factory**: Industry models, waste byproduct logs, and factory metadata.
-- **recycler**: Bid calculations, recycler profiles, and auction logs.
-- **logistics**: Fleet logs, GPS telemetry, and driver dispatch records.
-- **marketplace**: Bidding catalog, offer logic, and auction controllers.
-- **shipments**: Shipment manifests, GPS checkpoints, and manifest signing services.
-- **reports**: Data aggregators for ESG metrics and carbon calculations.
-- **subscriptions**: Billing plans, company licenses, and transaction logs.
-- **users**: Custom User model definitions, user metadata, and profiles.
-- **core**: Base application controllers, common utilities, and system status checks.
+The current structure of the React frontend codebase is organized around component-driven modules:
+
+```text
+frontend/
+│
+├── src/
+│   ├── components/
+│   │     ├── authentication/  # Login screen and auth forms
+│   │     ├── factory/         # Factory dashboard, waste upload, listings, and tracking
+│   │     ├── recycler/        # Recycler dashboard, bidding page, catalog, and auctions
+│   │     ├── logistics/       # Logistics fleet and dispatch dashboards
+│   │     ├── subscription/    # Pricing plans, checkout pages, and upgrade flows
+│   │     ├── onboarding/      # Walkthrough and user setup prompts
+│   │     └── settings/        # Portal configurations and settings pages
+│   ├── App.tsx                # Application shell and view routing manager
+│   ├── index.css              # Global styles and tailwind system setup
+│   ├── main.tsx               # Client entry mount point
+│   └── types.ts               # Shared TypeScript interface models
+│
+└── package.json
+```
+
+*Note: Frontend page segmentation, custom hooks, services (API client integration), global context management, and routing setups are planned to be expanded as the implementation transitions from UI mockup to full API integration.*
 
 ---
 
-## Tech Stack
+# Backend Structure
 
-### Frontend
+The backend directory contains the configuration files and the base system setup:
+
+```text
+backend/
+│
+├── config/                  # Core settings, configurations, and URL entry points
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py / asgi.py
+│
+├── core/                    # Core module status validation and starter endpoints
+│   ├── views.py             # System status health endpoints
+│   ├── models.py
+│   ├── apps.py
+│   └── admin.py
+│
+├── manage.py                # Django CLI management entry point
+├── requirements.txt         # Django dependency index
+└── .env.example             # Template for backend settings
+```
+
+*Note: Pluggable Django business apps (`authentication`, `factory`, `recycler`, `logistics`, `marketplace`, `shipments`, `reports`, `subscriptions`, `users`) will be initialized in the `apps/` directory in the next integration phase.*
+
+---
+
+# Architecture
+
+The project follows a modular architecture where each stakeholder has an independent workspace while sharing the same backend infrastructure.
+
+### Factory Module
+
+- **Dashboard**: Live telemetry of generated waste, bids, active shipments, and savings.
+- **Waste Management**: Listing creation, material category assignment, and volume logs.
+- **Marketplace**: Bidding status interface and listing catalogs.
+- **Shipments**: Live shipping manifest tracking and EEAA status indicators.
+- **Reports**: Analytics charts for monthly waste production and recycling yields.
+
+### Recycler Module
+
+- **Marketplace**: Recycled material catalog with auction grids and search filters.
+- **Bidding System**: Live bid placing forms with historical pricing records.
+- **Won Auctions**: Detailed logs of successful listings and pickup instructions.
+- **Shipments**: Delivery manifests and recycler receiving confirmation forms.
+- **Reports**: Carbon tracking offset charts and processing logs.
+
+### Logistics Module
+
+- **Dashboard**: Fleet tracking, active manifests, and delivery statistics.
+- **Assigned Shipments**: Manifest assignment records.
+- **Shipment Tracking**: Status updates, checkpoint logs, and delivery signature forms.
+- **Delivery Confirmation**: Waste delivery manifests signed digitally.
+- **Reports**: Route fuel efficiency reports and delivery time metrics.
+
+---
+
+# Tech Stack
+
+## Frontend
+
 - **React** (v18+)
 - **TypeScript**
 - **Vite** (Build Tool)
-- **TailwindCSS** (Styling Framework)
-- **React Router** (Navigation)
+- **Tailwind CSS** (Styling Framework)
+- **React Router** (Navigation flows)
 
-### Backend
+## Backend
+
 - **Django** (v5.x+)
-- **Django REST Framework** (DRF)
+- **Django REST Framework** (API Layer)
 
-### Design
+## Design
+
 - **Figma**
 
 ---
 
-## Environment Setup
+# Environment Setup
+
+## Frontend
+
+```bash
+cd frontend
+
+npm install
+
+npm run dev
+```
+
+---
+
+## Backend
+
+```bash
+cd backend
+
+python -m venv .venv
+```
+
+Windows
+
+```powershell
+.venv\Scripts\activate
+```
+
+Linux / macOS
+
+```bash
+source .venv/bin/activate
+```
+
+Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Run migrations
+
+```bash
+python manage.py migrate
+```
+
+Run server
+
+```bash
+python manage.py runserver
+```
+
+---
+
+# How to Run
 
 ### Frontend
-1. Navigate to the `frontend/` directory.
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Launch development server:
-   ```bash
-   npm run dev
-   ```
+
+```bash
+cd frontend
+
+npm install
+
+npm run dev
+```
+
+---
 
 ### Backend
-1. Navigate to the `backend/` directory.
-2. Initialize virtual environment:
-   ```bash
-   python -m venv .venv
-   ```
-3. Activate the virtual environment:
-   - On Windows:
-     ```powershell
-     .venv\Scripts\activate
-     ```
-   - On macOS/Linux:
-     ```bash
-     source .venv/bin/activate
-     ```
-4. Install requirements:
-   ```bash
-   pip install -r requirements.txt
-   ```
-5. Apply database migrations:
-   ```bash
-   python manage.py migrate
-   ```
-6. Run the server:
-   ```bash
-   python manage.py runserver
-   ```
+
+```bash
+cd backend
+
+python -m venv .venv
+
+pip install -r requirements.txt
+
+python manage.py migrate
+
+python manage.py runserver
+```
+
+> **Note**
+>
+> The backend currently contains the initial project architecture and environment setup. Business logic and REST API implementation are planned for future development.
 
 ---
 
-## How To Run
+# Screenshots
 
-### Running the Frontend
-1. Navigate to `frontend/`.
-2. Run `npm install` (first-time setup).
-3. Run `npm run dev`.
-4. Open the displayed URL in your browser (typically `http://localhost:3000`).
+## Login
 
-### Running the Backend
-1. Navigate to `backend/`.
-2. Create and activate a virtual environment.
-3. Install dependencies: `pip install -r requirements.txt`.
-4. Apply migrations: `python manage.py migrate`.
-5. Run the backend development server: `python manage.py runserver`.
-
-*Note: The backend currently contains the initial project skeleton and config structure. Business apps and business logic are planned for future phases.*
+> *(Add Screenshot Here)*
 
 ---
 
-## Development Status
+## Factory Dashboard
 
-- **Frontend**: UI implementation in progress. High-fidelity layouts, dashboards, and pages have been designed.
-- **Backend**: Initial architecture completed. Main settings, CORS middleware, environment configurations, and the core app setup are ready. Business logic and REST APIs are planned for future implementation.
+> *(Add Screenshot Here)*
 
 ---
 
-## License
-All Rights Reserved.
+## Marketplace
+
+> *(Add Screenshot Here)*
+
+---
+
+## Recycler Dashboard
+
+> *(Add Screenshot Here)*
+
+---
+
+## Logistics Dashboard
+
+> *(Add Screenshot Here)*
+
+---
+
+## Reports
+
+> *(Add Screenshot Here)*
+
+---
+
+# Development Status
+
+### Completed
+
+- UI/UX Design
+- Design System
+- User Flow Diagrams
+- Frontend Project Structure & UI Pages (Recycler, Factory, Logistics, Subscriptions, and Login views)
+- Backend Initial Architecture (CORS settings, REST framework integration, SQLite config, Dotenv loader)
+- React Project Setup
+- Django Project Setup
+
+### In Progress
+
+- Frontend Mock State Management
+- Backend Pluggable Apps Setup
+- API Integration Planning
+
+### Planned
+
+- Authentication & Authorization
+- AI Waste Classification
+- Marketplace Engine
+- Shipment Management
+- ESG Reporting
+- Payment Integration
+- Carbon Credit Services
+
+---
+
+# Repository
+
+This repository contains:
+
+- Initial Frontend Structure
+- Initial Backend Structure
+- Design Assets
+- Documentation
+- Project Architecture
+- Environment Configuration
+
+---
+
+# License
+
+**All Rights Reserved**
+
+Copyright © 2026 Eco Link.
+
+This repository and its contents are proprietary.
+
+No part of this project may be copied, modified, distributed, published, sublicensed, or used for commercial or non-commercial purposes without prior written permission from the project owners.
