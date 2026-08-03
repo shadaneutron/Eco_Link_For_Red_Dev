@@ -1,4 +1,3 @@
-<img width="1902" height="877" alt="image" src="https://github.com/user-attachments/assets/bf894cd6-812e-4844-9131-7d8c76aeee8d" /># Eco Link
 
 An AI-powered B2B Circular Economy Platform that connects factories, recycling companies, and logistics providers through one unified digital ecosystem.
 
