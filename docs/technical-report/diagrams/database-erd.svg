@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 780" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #F8FAFC; }
+      .box { fill: #FFFFFF; stroke: #94A3B8; stroke-width: 2; rx: 6; ry: 6; }
+      .header-bg { fill: #1E293B; rx: 6; ry: 6; }
+      .header-text { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 700; fill: #FFFFFF; }
+      .field-pk { font-family: monospace; font-size: 11px; font-weight: 700; fill: #D97706; }
+      .field-fk { font-family: monospace; font-size: 11px; font-weight: 700; fill: #2563EB; }
+      .field-name { font-family: monospace; font-size: 11px; fill: #334155; }
+      .text-title { font-family: system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 700; fill: #0F172A; }
+      .text-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; fill: #475569; }
+      .line { stroke: #475569; stroke-width: 2; fill: none; }
+      .card-text { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 700; fill: #0F172A; background: #FFFFFF; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1050" height="780" class="bg" />
+
+  <!-- Title -->
+  <text x="40" y="40" class="text-title">Eco Link Enterprise — Database Entity Relationship Diagram (ERD)</text>
+  <text x="40" y="60" class="text-sub">Relational Schema derived directly from backend/core/models.py</text>
+
+  <!-- Entity 1: User -->
+  <g transform="translate(40, 90)">
+    <rect width="260" height="190" class="box" />
+    <path d="M 0 0 h 260 v 30 h -260 z" class="header-bg" />
+    <text x="130" y="20" text-anchor="middle" class="header-text">User (core_user)</text>
+    <text x="15" y="50" class="field-pk">PK  id : AutoField</text>
+    <text x="15" y="70" class="field-name">    email : EmailField (Unique)</text>
+    <text x="15" y="90" class="field-name">    full_name : CharField</text>
+    <text x="15" y="110" class="field-name">    role : CharField (Choices)</text>
+    <text x="15" y="130" class="field-name">    company_name : CharField</text>
+    <text x="15" y="150" class="field-name">    phone : CharField</text>
+    <text x="15" y="170" class="field-name">    location : CharField</text>
+  </g>
+
+  <!-- Entity 2: WasteListing -->
+  <g transform="translate(390, 90)">
+    <rect width="270" height="230" class="box" />
+    <path d="M 0 0 h 270 v 30 h -270 z" class="header-bg" />
+    <text x="135" y="20" text-anchor="middle" class="header-text">WasteListing (core_wastelisting)</text>
+    <text x="15" y="50" class="field-pk">PK  id : AutoField</text>
+    <text x="15" y="70" class="field-fk">FK  factory_id : User (1:N)</text>
+    <text x="15" y="90" class="field-name">    title : CharField</text>
+    <text x="15" y="110" class="field-name">    material_type : CharField</text>
+    <text x="15" y="130" class="field-name">    quantity : DecimalField</text>
+    <text x="15" y="150" class="field-name">    unit, condition, location</text>
+    <text x="15" y="170" class="field-name">    ai_material_type, ai_confidence</text>
+    <text x="15" y="190" class="field-name">    ai_ewc_code : CharField</text>
+    <text x="15" y="210" class="field-name">    status : CharField (Choices)</text>
+  </g>
+
+  <!-- Entity 3: Auction -->
+  <g transform="translate(740, 90)">
+    <rect width="270" height="150" class="box" />
+    <path d="M 0 0 h 270 v 30 h -270 z" class="header-bg" />
+    <text x="135" y="20" text-anchor="middle" class="header-text">Auction (core_auction)</text>
+    <text x="15" y="50" class="field-pk">PK  id : AutoField</text>
+    <text x="15" y="70" class="field-fk">FK  listing_id : WasteListing (1:N)</text>
+    <text x="15" y="90" class="field-name">    status : CharField (Choices)</text>
+    <text x="15" y="110" class="field-name">    start_date : DateTimeField</text>
+    <text x="15" y="130" class="field-name">    end_date : DateTimeField</text>
+  </g>
+
+  <!-- Entity 4: Bid -->
+  <g transform="translate(740, 310)">
+    <rect width="270" height="170" class="box" />
+    <path d="M 0 0 h 270 v 30 h -270 z" class="header-bg" />
+    <text x="135" y="20" text-anchor="middle" class="header-text">Bid (core_bid)</text>
+    <text x="15" y="50" class="field-pk">PK  id : AutoField</text>
+    <text x="15" y="70" class="field-fk">FK  auction_id : Auction (N:1)</text>
+    <text x="15" y="90" class="field-fk">FK  recycler_id : User (N:1)</text>
+    <text x="15" y="110" class="field-name">    amount : DecimalField</text>
+    <text x="15" y="130" class="field-name">    status : CharField (Choices)</text>
+    <text x="15" y="150" class="field-name">    created_at : DateTimeField</text>
+  </g>
+
+  <!-- Entity 5: Transaction -->
+  <g transform="translate(390, 380)">
+    <rect width="270" height="210" class="box" />
+    <path d="M 0 0 h 270 v 30 h -270 z" class="header-bg" />
+    <text x="135" y="20" text-anchor="middle" class="header-text">Transaction (core_transaction)</text>
+    <text x="15" y="50" class="field-pk">PK  id : AutoField</text>
+    <text x="15" y="70" class="field-fk">FK  bid_id : Bid (1:1 Unique)</text>
+    <text x="15" y="90" class="field-fk">FK  auction_id : Auction (N:1)</text>
+    <text x="15" y="110" class="field-fk">FK  factory_id, recycler_id : User</text>
+    <text x="15" y="130" class="field-name">    amount : DecimalField</text>
+    <text x="15" y="150" class="field-name">    platform_commission (5%)</text>
+    <text x="15" y="170" class="field-name">    factory_amount (95%)</text>
+    <text x="15" y="190" class="field-name">    status : CharField (Choices)</text>
+  </g>
+
+  <!-- Entity 6: Shipment -->
+  <g transform="translate(40, 520)">
+    <rect width="270" height="230" class="box" />
+    <path d="M 0 0 h 270 v 30 h -270 z" class="header-bg" />
+    <text x="135" y="20" text-anchor="middle" class="header-text">Shipment (core_shipment)</text>
+    <text x="15" y="50" class="field-pk">PK  id : AutoField</text>
+    <text x="15" y="70" class="field-fk">FK  transaction_id : Transaction (1:1)</text>
+    <text x="15" y="90" class="field-fk">FK  listing_id : WasteListing</text>
+    <text x="15" y="110" class="field-fk">FK  factory_id, recycler_id : User</text>
+    <text x="15" y="130" class="field-fk">FK  logistics_company_id : User</text>
+    <text x="15" y="150" class="field-name">    tracking_number : CharField</text>
+    <text x="15" y="170" class="field-name">    driver_name, vehicle : CharField</text>
+    <text x="15" y="190" class="field-name">    pickup_location, destination</text>
+    <text x="15" y="210" class="field-name">    status : CharField (Choices)</text>
+  </g>
+
+  <!-- Entity 7: DigitalProductPassport -->
+  <g transform="translate(740, 530)">
+    <rect width="270" height="220" class="box" />
+    <path d="M 0 0 h 270 v 30 h -270 z" class="header-bg" />
+    <text x="135" y="20" text-anchor="middle" class="header-text">DigitalProductPassport (core_dpp)</text>
+    <text x="15" y="50" class="field-pk">PK  id : AutoField</text>
+    <text x="15" y="70" class="field-fk">FK  shipment_id : Shipment (1:1)</text>
+    <text x="15" y="90" class="field-name">    dpp_id : CharField (Unique)</text>
+    <text x="15" y="110" class="field-name">    material_type, quantity, unit</text>
+    <text x="15" y="130" class="field-name">    ai_classification, ai_confidence</text>
+    <text x="15" y="150" class="field-name">    origin / dest governorate</text>
+    <text x="15" y="170" class="field-name">    deal_amount, tracking_number</text>
+    <text x="15" y="190" class="field-name">    shipment_status : CharField</text>
+    <text x="15" y="210" class="field-name">    carbon_info, recycling_notes</text>
+  </g>
+
+  <!-- RELATIONSHIP LINES -->
+  <path d="M 300 180 L 390 180" class="line" />
+  <text x="310" y="175" class="card-text">1</text>
+  <text x="375" y="175" class="card-text">N</text>
+
+  <path d="M 660 160 L 740 160" class="line" />
+  <text x="670" y="155" class="card-text">1</text>
+  <text x="725" y="155" class="card-text">N</text>
+
+  <path d="M 875 240 L 875 310" class="line" />
+  <text x="880" y="260" class="card-text">1</text>
+  <text x="880" y="300" class="card-text">N</text>
+
+  <path d="M 740 420 L 660 420" class="line" />
+  <text x="725" y="415" class="card-text">1</text>
+  <text x="670" y="415" class="card-text">1</text>
+
+  <path d="M 390 500 L 175 500 L 175 520" class="line" />
+  <text x="370" y="495" class="card-text">1</text>
+  <text x="180" y="515" class="card-text">1</text>
+
+  <path d="M 310 640 L 740 640" class="line" />
+  <text x="325" y="635" class="card-text">1</text>
+  <text x="720" y="635" class="card-text">1</text>
+
+</svg>

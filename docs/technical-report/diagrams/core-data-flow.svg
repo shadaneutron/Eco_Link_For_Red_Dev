@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #F8FAFC; }
+      .box { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 2; rx: 8; ry: 8; }
+      .text-title { font-family: system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 700; fill: #0F172A; }
+      .text-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; fill: #475569; }
+      .step-hdr { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 700; fill: #1E293B; }
+      .role-tag { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 700; fill: #0284C7; }
+      .text-desc { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; fill: #334155; }
+      .arrow { stroke: #0EA5E9; stroke-width: 2.5; fill: none; marker-end: url(#arrowhead); }
+      .highlight-box { fill: #EFF6FF; stroke: #3B82F6; stroke-width: 2; rx: 8; ry: 8; }
+      .atomic-badge { fill: #DC2626; font-family: system-ui, -apple-system, sans-serif; font-size: 10px; font-weight: 700; fill: #FFFFFF; rx: 3; }
+      .code-tag { font-family: monospace; font-size: 10px; fill: #D97706; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#0EA5E9" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="680" class="bg" />
+
+  <!-- Title -->
+  <text x="40" y="40" class="text-title">Eco Link Enterprise — Core Business Transaction Data Flow</text>
+  <text x="40" y="60" class="text-sub">USER ACTION ➔ API ENDPOINT ➔ BACKEND HANDLER ➔ DATABASE MUTATION</text>
+
+  <!-- Step 1: Listing Creation -->
+  <g transform="translate(40, 90)">
+    <rect width="270" height="150" class="box" />
+    <text x="20" y="30" class="role-tag">ROLE: FACTORY</text>
+    <text x="20" y="55" class="step-hdr">1. Create Waste Listing</text>
+    <text x="20" y="78" class="code-tag">POST /api/marketplace/listings/</text>
+    <text x="20" y="98" class="text-desc">Handler: WasteListingViewSet.create()</text>
+    <text x="20" y="118" class="text-desc">DB: INSERT WasteListing</text>
+    <text x="20" y="135" class="text-desc">DB: INSERT Auction (status='open')</text>
+  </g>
+
+  <path d="M 310 165 L 365 165" class="arrow" />
+
+  <!-- Step 2: Auction Bidding -->
+  <g transform="translate(365, 90)">
+    <rect width="270" height="150" class="box" />
+    <text x="20" y="30" class="role-tag">ROLE: RECYCLER</text>
+    <text x="20" y="55" class="step-hdr">2. Submit Sealed Bid</text>
+    <text x="20" y="78" class="code-tag">POST /api/marketplace/auctions/&lt;id&gt;/bids/</text>
+    <text x="20" y="98" class="text-desc">Handler: BidViewSet.create()</text>
+    <text x="20" y="118" class="text-desc">DB: INSERT Bid (status='pending')</text>
+    <text x="20" y="135" class="text-desc">Note: Recycler ID redacted for Factory</text>
+  </g>
+
+  <path d="M 635 165 L 690 165" class="arrow" />
+
+  <!-- Step 3: Factory Bid Acceptance -->
+  <g transform="translate(690, 90)">
+    <rect width="270" height="150" class="box" />
+    <text x="20" y="30" class="role-tag">ROLE: FACTORY</text>
+    <text x="20" y="55" class="step-hdr">3. Accept Winning Bid</text>
+    <text x="20" y="78" class="code-tag">POST /api/marketplace/bids/&lt;id&gt;/accept/</text>
+    <text x="20" y="98" class="text-desc">Handler: AcceptBidView</text>
+    <text x="20" y="118" class="text-desc">Executes Atomic DB Transaction</text>
+  </g>
+
+  <path d="M 825 240 L 825 285" class="arrow" />
+
+  <!-- Step 4: Atomic DB Mutation Block -->
+  <g transform="translate(40, 285)">
+    <rect width="920" height="180" class="highlight-box" />
+    <rect x="20" y="15" width="160" height="22" class="atomic-badge" />
+    <text x="100" y="30" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11px" font-weight="700" fill="#FFFFFF">db_transaction.atomic()</text>
+    <text x="200" y="32" class="step-hdr" style="font-size: 14px; fill: #1E3A8A;">4. Backend Atomic Database Operations (AcceptBidView)</text>
+
+    <g transform="translate(20, 50)">
+      <rect width="270" height="110" class="box" />
+      <text x="15" y="30" class="step-hdr">Marketplace Updates</text>
+      <text x="15" y="55" class="text-desc">DB: UPDATE Bid (target ➔ accepted)</text>
+      <text x="15" y="75" class="text-desc">DB: UPDATE Bid (others ➔ rejected)</text>
+      <text x="15" y="95" class="text-desc">DB: UPDATE Auction (status ➔ closed)</text>
+    </g>
+
+    <g transform="translate(325, 50)">
+      <rect width="270" height="110" class="box" />
+      <text x="15" y="30" class="step-hdr">Escrow Ledger Creation</text>
+      <text x="15" y="55" class="text-desc">DB: INSERT Transaction</text>
+      <text x="15" y="75" class="text-desc">Calculates 5% platform commission</text>
+      <text x="15" y="95" class="text-desc">Sets status ➔ Escrow Held</text>
+    </g>
+
+    <g transform="translate(630, 50)">
+      <rect width="270" height="110" class="box" />
+      <text x="15" y="30" class="step-hdr">Logistics &amp; DPP Instantiation</text>
+      <text x="15" y="55" class="text-desc">DB: INSERT Shipment (Pending)</text>
+      <text x="15" y="75" class="text-desc">DB: INSERT DigitalProductPassport</text>
+      <text x="15" y="95" class="text-desc">Auto-generates TRK &amp; DPP IDs</text>
+    </g>
+  </g>
+
+  <path d="M 500 465 L 500 500" class="arrow" />
+
+  <!-- Step 5: Logistics Progress & Confirmation -->
+  <g transform="translate(40, 500)">
+    <rect width="440" height="150" class="box" />
+    <text x="20" y="30" class="role-tag">ROLE: LOGISTICS FLEET</text>
+    <text x="20" y="55" class="step-hdr">5. Manifest Execution &amp; Waybill Tracking</text>
+    <text x="20" y="78" class="code-tag">POST /api/shipments/&lt;id&gt;/assign/ | /pickup/ | /transit/ | /deliver/</text>
+    <text x="20" y="98" class="text-desc">Handlers: AssignShipmentView, UpdateShipmentStatusView</text>
+    <text x="20" y="118" class="text-desc">DB: UPDATE Shipment.status ➔ Assigned ➔ Picked Up ➔ Delivered</text>
+  </g>
+
+  <path d="M 480 575 L 520 575" class="arrow" />
+
+  <!-- Step 6: Recycler Receipt & Settlement -->
+  <g transform="translate(520, 500)">
+    <rect width="440" height="150" class="box" />
+    <text x="20" y="30" class="role-tag">ROLE: RECYCLER</text>
+    <text x="20" y="55" class="step-hdr">6. Delivery Confirmation &amp; Escrow Settlement</text>
+    <text x="20" y="78" class="code-tag">POST /api/shipments/&lt;id&gt;/confirm/</text>
+    <text x="20" y="98" class="text-desc">Handler: ConfirmShipmentView</text>
+    <text x="20" y="118" class="text-desc">DB: UPDATE Shipment ➔ Confirmed | Transaction ➔ Completed</text>
+  </g>
+
+</svg>

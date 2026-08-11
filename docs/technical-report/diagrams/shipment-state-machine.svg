@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #F8FAFC; }
+      .box { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 2; rx: 8; ry: 8; }
+      .text-title { font-family: system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 700; fill: #0F172A; }
+      .text-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; fill: #475569; }
+      .state-box { fill: #1E293B; stroke: #0F172A; stroke-width: 2; rx: 6; ry: 6; }
+      .state-title { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 700; fill: #FFFFFF; }
+      .action-box { fill: #EFF6FF; stroke: #3B82F6; stroke-width: 1.5; rx: 6; ry: 6; }
+      .code-tag { font-family: monospace; font-size: 10px; font-weight: 700; fill: #1E40AF; }
+      .role-tag { font-family: system-ui, -apple-system, sans-serif; font-size: 10px; font-weight: 700; fill: #D97706; }
+      .arrow { stroke: #0EA5E9; stroke-width: 2.5; fill: none; marker-end: url(#arrowhead); }
+      .text-desc { font-family: system-ui, -apple-system, sans-serif; font-size: 10px; fill: #334155; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#0EA5E9" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="640" class="bg" />
+
+  <!-- Title -->
+  <text x="40" y="40" class="text-title">Eco Link Enterprise — Shipment Logistics State Machine</text>
+  <text x="40" y="60" class="text-sub">Authorized State Transitions &amp; API Endpoint Mapping (backend/core/views.py)</text>
+
+  <!-- State 1: Pending -->
+  <g transform="translate(40, 110)">
+    <rect width="240" height="50" class="state-box" />
+    <text x="120" y="30" text-anchor="middle" class="state-title">1. Pending</text>
+    <text x="120" y="44" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9px" fill="#94A3B8">Created upon Bid Acceptance</text>
+  </g>
+
+  <!-- Transition 1 -->
+  <g transform="translate(310, 95)">
+    <rect width="380" height="80" class="action-box" />
+    <text x="15" y="22" class="code-tag">POST /api/shipments/&lt;id&gt;/assign/</text>
+    <text x="15" y="40" class="role-tag">AUTHORIZED ROLE: Logistics / Admin</text>
+    <text x="15" y="58" class="text-desc">Backend: AssignShipmentView</text>
+    <text x="15" y="72" class="text-desc">DB Effect: Updates driver_name, vehicle, logistics_company</text>
+  </g>
+  <path d="M 280 135 L 310 135" class="arrow" />
+  <path d="M 690 135 L 720 135" class="arrow" />
+
+  <!-- State 2: Assigned -->
+  <g transform="translate(720, 110)">
+    <rect width="240" height="50" class="state-box" />
+    <text x="120" y="30" text-anchor="middle" class="state-title">2. Assigned</text>
+  </g>
+
+  <!-- Transition 2 -->
+  <g transform="translate(720, 195)">
+    <rect width="240" height="70" class="action-box" />
+    <text x="10" y="20" class="code-tag">POST /api/shipments/&lt;id&gt;/pickup/</text>
+    <text x="10" y="38" class="role-tag">ROLE: Logistics / Admin</text>
+    <text x="10" y="54" class="text-desc">Backend: UpdateShipmentStatusView</text>
+  </g>
+  <path d="M 840 160 L 840 195" class="arrow" />
+  <path d="M 840 265 L 840 300" class="arrow" />
+
+  <!-- State 3: Ready for Pickup / Picked Up -->
+  <g transform="translate(720, 300)">
+    <rect width="240" height="50" class="state-box" />
+    <text x="120" y="30" text-anchor="middle" class="state-title">3. Picked Up</text>
+  </g>
+
+  <!-- Transition 3 -->
+  <g transform="translate(310, 285)">
+    <rect width="380" height="80" class="action-box" />
+    <text x="15" y="22" class="code-tag">POST /api/shipments/&lt;id&gt;/transit/</text>
+    <text x="15" y="40" class="role-tag">AUTHORIZED ROLE: Logistics / Admin</text>
+    <text x="15" y="58" class="text-desc">Backend: UpdateShipmentStatusView</text>
+    <text x="15" y="72" class="text-desc">DB Effect: Updates status to In Transit</text>
+  </g>
+  <path d="M 720 325 L 690 325" class="arrow" />
+  <path d="M 310 325 L 280 325" class="arrow" />
+
+  <!-- State 4: In Transit -->
+  <g transform="translate(40, 300)">
+    <rect width="240" height="50" class="state-box" />
+    <text x="120" y="30" text-anchor="middle" class="state-title">4. In Transit</text>
+  </g>
+
+  <!-- Transition 4 -->
+  <g transform="translate(40, 385)">
+    <rect width="240" height="70" class="action-box" />
+    <text x="10" y="20" class="code-tag">POST /api/shipments/&lt;id&gt;/deliver/</text>
+    <text x="10" y="38" class="role-tag">ROLE: Logistics / Admin</text>
+    <text x="10" y="54" class="text-desc">Backend: UpdateShipmentStatusView</text>
+  </g>
+  <path d="M 160 350 L 160 385" class="arrow" />
+  <path d="M 160 455 L 160 490" class="arrow" />
+
+  <!-- State 5: Delivered -->
+  <g transform="translate(40, 490)">
+    <rect width="240" height="50" class="state-box" style="fill: #0284C7;" />
+    <text x="120" y="30" text-anchor="middle" class="state-title">5. Delivered</text>
+    <text x="120" y="44" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9px" fill="#E0F2FE">Logistics workflow ends here</text>
+  </g>
+
+  <!-- Transition 5 -->
+  <g transform="translate(310, 475)">
+    <rect width="380" height="80" class="action-box" style="fill: #ECFDF5; stroke: #059669;" />
+    <text x="15" y="22" class="code-tag" style="fill: #047857;">POST /api/shipments/&lt;id&gt;/confirm/</text>
+    <text x="15" y="40" class="role-tag" style="fill: #047857;">AUTHORIZED ROLE: Recycler ONLY (or Admin)</text>
+    <text x="15" y="58" class="text-desc">Backend: ConfirmShipmentView (Atomic DB Tx)</text>
+    <text x="15" y="72" class="text-desc">DB Effect: Shipment ➔ Confirmed | Transaction ➔ Completed</text>
+  </g>
+  <path d="M 280 515 L 310 515" class="arrow" style="stroke: #059669;" />
+  <path d="M 690 515 L 720 515" class="arrow" style="stroke: #059669;" />
+
+  <!-- State 6: Confirmed -->
+  <g transform="translate(720, 490)">
+    <rect width="240" height="50" class="state-box" style="fill: #059669;" />
+    <text x="120" y="30" text-anchor="middle" class="state-title">6. Confirmed (Final)</text>
+    <text x="120" y="44" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9px" fill="#A7F3D0">Escrow released to Factory</text>
+  </g>
+
+</svg>

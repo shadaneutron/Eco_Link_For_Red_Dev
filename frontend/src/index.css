@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --font-headline: 'Hanken Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-primary: #000a1f;
+  --color-primary-navy: #00204a;
+  --color-secondary: #006a6a;
+  --color-secondary-teal: #007070;
+  --color-surface: #f7faf9;
+  --color-surface-container-low: #f1f4f3;
+  --color-surface-container: #ebeeed;
+  --color-secondary-container: #8cf3f3;
+  --color-outline-variant: #c4c6d0;
+  --color-outline: #747780;
+  --color-on-surface-variant: #44474f;
+  --color-on-surface: #181c1c;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+}
+
+.font-headline {
+  font-family: 'Hanken Grotesk', sans-serif;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+

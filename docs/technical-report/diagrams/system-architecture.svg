@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #F8FAFC; }
+      .box { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 2; rx: 8; ry: 8; }
+      .box-header { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 700; fill: #0F172A; }
+      .text-title { font-family: system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 700; fill: #0F172A; }
+      .text-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; fill: #475569; }
+      .sub-box { fill: #F1F5F9; stroke: #94A3B8; stroke-width: 1.5; rx: 6; ry: 6; }
+      .sub-text { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 600; fill: #1E293B; }
+      .module-box { fill: #E0F2FE; stroke: #0284C7; stroke-width: 1.5; rx: 6; ry: 6; }
+      .module-text { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 700; fill: #0369A1; }
+      .db-box { fill: #ECFDF5; stroke: #059669; stroke-width: 2; rx: 8; ry: 8; }
+      .db-text { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 700; fill: #047857; }
+      .arrow { stroke: #64748B; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-label { font-family: system-ui, -apple-system, sans-serif; font-size: 10px; font-weight: 600; fill: #475569; }
+      .dir-path { font-family: monospace; font-size: 10px; fill: #0369A1; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748B" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="680" class="bg" />
+
+  <!-- Title -->
+  <text x="40" y="40" class="text-title">Eco Link Enterprise — System Architecture</text>
+  <text x="40" y="60" class="text-sub">Layered Production System Architecture (React 19 + Django REST Framework + PostgreSQL)</text>
+
+  <!-- Frontend Container -->
+  <rect x="40" y="90" width="920" height="130" class="box" />
+  <text x="60" y="115" class="box-header">React 19 Frontend Application</text>
+  <text x="320" y="115" class="dir-path">frontend/src/</text>
+  
+  <rect x="60" y="130" width="150" height="70" class="sub-box" />
+  <text x="135" y="155" text-anchor="middle" class="sub-text">Factory Portal</text>
+  <text x="135" y="175" text-anchor="middle" class="text-sub">frontend/src/components/factory/</text>
+
+  <rect x="230" y="130" width="150" height="70" class="sub-box" />
+  <text x="305" y="155" text-anchor="middle" class="sub-text">Recycler Catalog</text>
+  <text x="305" y="175" text-anchor="middle" class="text-sub">frontend/src/components/recycler/</text>
+
+  <rect x="400" y="130" width="150" height="70" class="sub-box" />
+  <text x="475" y="155" text-anchor="middle" class="sub-text">Logistics Fleet</text>
+  <text x="475" y="175" text-anchor="middle" class="text-sub">frontend/src/components/logistics/</text>
+
+  <rect x="570" y="130" width="150" height="70" class="sub-box" />
+  <text x="645" y="155" text-anchor="middle" class="sub-text">Admin Dashboard</text>
+  <text x="645" y="175" text-anchor="middle" class="text-sub">frontend/src/components/admin/</text>
+
+  <rect x="740" y="130" width="200" height="70" class="sub-box" style="stroke: #0284C7;" />
+  <text x="840" y="155" text-anchor="middle" class="sub-text" style="fill: #0369A1;">Service / API Layer</text>
+  <text x="840" y="175" text-anchor="middle" class="dir-path">frontend/src/services/api.ts</text>
+
+  <!-- Connection Arrow 1 -->
+  <path d="M 500 220 L 500 260" class="arrow" />
+  <rect x="420" y="230" width="160" height="18" fill="#FFFFFF" rx="3" />
+  <text x="500" y="243" text-anchor="middle" class="arrow-label">HTTP / REST / JWT Bearer</text>
+
+  <!-- Backend Container -->
+  <rect x="40" y="270" width="920" height="250" class="box" />
+  <text x="60" y="295" class="box-header">Django REST Framework Backend Engine</text>
+  <text x="360" y="295" class="dir-path">backend/core/</text>
+
+  <!-- API Core Layer -->
+  <rect x="60" y="315" width="260" height="180" class="sub-box" />
+  <text x="190" y="338" text-anchor="middle" class="sub-text">REST Views &amp; Controllers</text>
+  <text x="190" y="352" text-anchor="middle" class="dir-path">backend/core/views.py</text>
+  <text x="75" y="375" class="text-sub">• Auth &amp; Profile Handlers</text>
+  <text x="75" y="395" class="text-sub">• Waste Listing &amp; Bidding Views</text>
+  <text x="75" y="415" class="text-sub">• Atomic AcceptBidView Transaction</text>
+  <text x="75" y="435" class="text-sub">• Shipment State Machine Actions</text>
+  <text x="75" y="455" class="text-sub">• Digital Product Passport Views</text>
+  <text x="75" y="475" class="text-sub">• Logistics Aggregate Reports</text>
+
+  <!-- Business & Serializers Layer -->
+  <rect x="340" y="315" width="240" height="180" class="sub-box" />
+  <text x="460" y="338" text-anchor="middle" class="sub-text">Serializers &amp; Security</text>
+  <text x="460" y="352" text-anchor="middle" class="dir-path">backend/core/serializers.py</text>
+  <text x="355" y="375" class="text-sub">• Role-Aware Serializer Filters</text>
+  <text x="355" y="395" class="text-sub">• Factory Anonymity Protection</text>
+  <text x="355" y="415" class="text-sub">• SimpleJWT Auth &amp; Token Claims</text>
+  <text x="355" y="435" class="text-sub">• Permission Guards (permissions.py)</text>
+  <text x="355" y="455" class="text-sub">• Validation &amp; Schema Integrity</text>
+
+  <!-- Backend Sub-Modules -->
+  <rect x="600" y="315" width="340" height="180" class="sub-box" style="stroke: #0284C7;" />
+  <text x="770" y="338" text-anchor="middle" class="sub-text" style="fill: #0369A1;">Connected Domain Sub-Modules</text>
+
+  <rect x="615" y="355" width="310" height="38" class="module-box" />
+  <text x="770" y="372" text-anchor="middle" class="module-text">PyTorch EfficientNet-B0 Classifier</text>
+  <text x="770" y="386" text-anchor="middle" class="dir-path">backend/core/ai/</text>
+
+  <rect x="615" y="400" width="310" height="38" class="module-box" />
+  <text x="770" y="417" text-anchor="middle" class="module-text">Rule-Based Scoring Engine</text>
+  <text x="770" y="431" text-anchor="middle" class="dir-path">backend/core/recommendations/</text>
+
+  <rect x="615" y="445" width="310" height="38" class="module-box" />
+  <text x="770" y="462" text-anchor="middle" class="module-text">Digital Product Passport Generator</text>
+  <text x="770" y="476" text-anchor="middle" class="dir-path">backend/core/dpp/</text>
+
+  <!-- Connection Arrow 2 -->
+  <path d="M 500 520 L 500 560" class="arrow" />
+  <rect x="420" y="530" width="160" height="18" fill="#FFFFFF" rx="3" />
+  <text x="500" y="543" text-anchor="middle" class="arrow-label">Django ORM / SQL</text>
+
+  <!-- Database Container -->
+  <rect x="40" y="570" width="920" height="80" class="db-box" />
+  <text x="500" y="595" text-anchor="middle" class="db-text">PostgreSQL Database (Single Source of Truth)</text>
+  <text x="500" y="612" text-anchor="middle" class="dir-path">backend/core/models.py &amp; backend/core/migrations/</text>
+  <text x="500" y="632" text-anchor="middle" class="text-sub">Persisted Entities: User | WasteListing | Auction | Bid | Transaction | Shipment | DigitalProductPassport</text>
+</svg>
