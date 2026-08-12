@@ -1,41 +1,104 @@
-# دليل التشغيل والرفع باستخدام Docker و GitHub Actions (ECO Link)
+# Eco Link Enterprise — Deployment & Operations Guide
 
-تم تجهيز جميع الملفات الخاصة بـ **Docker** و **Docker Compose** و **GitHub Actions** في المشروع كالتالي:
-
----
-
-## 📁 الملفات التي تم إنشاؤها:
-1. **[backend/Dockerfile](file:///c:/Users/AL-Huda/Documents/ECO_Link/Eco_Link_For_Red_Dev-main/backend/Dockerfile)**: بناء صورة الباك إند (Django + Gunicorn).
-2. **[frontend/Dockerfile](file:///c:/Users/AL-Huda/Documents/ECO_Link/Eco_Link_For_Red_Dev-main/frontend/Dockerfile)**: بناء صورة الفرونت إند (React + Nginx Multi-stage).
-3. **[frontend/nginx.conf](file:///c:/Users/AL-Huda/Documents/ECO_Link/Eco_Link_For_Red_Dev-main/frontend/nginx.conf)**: إعداد Nginx لتوجيه الـ API والـ Admin والملفات الثابتة تلقائياً للباك إند.
-4. **[docker-compose.yml](file:///c:/Users/AL-Huda/Documents/ECO_Link/Eco_Link_For_Red_Dev-main/docker-compose.yml)**: ملف تجميع وتشغيل الخدمات الثلاث (Database + Backend + Frontend).
-5. **[.github/workflows/docker-ci-cd.yml](file:///c:/Users/AL-Huda/Documents/ECO_Link/Eco_Link_For_Red_Dev-main/.github/workflows/docker-ci-cd.yml)**: ملف GitHub Actions لبناء صور الدوكر ورفعها تلقائياً على **GitHub Container Registry (ghcr.io)**.
+This document describes the deployment architecture and steps required to run the **Eco Link** platform both locally and in production.
 
 ---
 
-## 🐳 1. تشغيل المشروع محلياً باستخدام Docker Compose:
+## 🏗️ 1. Production Target Architecture
 
-لتشغيل المشروع كاملاً (الفرونت والباك والداتا بيز) بأمر واحد فقط:
+The platform uses a decoupled, highly scalable cloud setup:
 
-```bash
-docker-compose up --build -d
+```
+                    ┌────────────────────────┐
+                    │     Vercel Edge CDN    │
+                    │   (React Frontend UI)  │
+                    └───────────┬────────────┘
+                                │
+                                ▼ (Secure HTTP / CORS API Requests)
+                    ┌────────────────────────┐
+                    │     Railway Cloud      │
+                    │  (Django Backend REST) │
+                    └─────┬────────────┬─────┘
+                          │            │
+                          ▼ (SQL)      ▼ (Media Uploads)
+              ┌──────────────┐      ┌──────────────┐
+              │  PostgreSQL  │      │  Cloudinary  │
+              │  (Database)  │      │  (SaaS CDN)  │
+              └──────────────┘      └──────────────┘
 ```
 
-- **الفرونت إند**: سيعمل على `http://localhost` (Port 80)
-- **الباك إند API**: سيعمل على `http://localhost:8000/api/`
-- **لوحة أدمين Django**: ستعمل على `http://localhost/admin/`
-
-### 🛑 لإيقاف الخدمات:
-```bash
-docker-compose down
-```
+* **Frontend**: React 19 + Vite deployed to **Vercel** (static hosting with client-side routing).
+* **Backend**: Django REST Framework API engine deployed to **Railway** running in containerized production mode.
+* **Database**: **PostgreSQL** hosted on Railway (fully managed database service).
+* **Media Storage**: **Cloudinary** CDN service (handles secure image storage and retrieval for waste listings).
+* **CI/CD Pipeline**: **GitHub Actions** (builds and pushes Docker images to GitHub Container Registry).
 
 ---
 
-## 🚀 2. الرفع والتكامل المستمر مع GitHub Actions:
+## 🐳 2. Local Development (Docker Compose)
 
-عند رفع هذا الكود إلى مستودع GitHub على فرع `main`:
+To spin up the entire ecosystem locally (database, backend API, and React frontend) using Docker Compose:
 
-1. سيقوم **GitHub Actions** تلقائياً ببدء العمل والتأكد من صحة بناء الـ Docker Image لكل من الفرونت والباك.
-2. سيتم بناء الصور وتنزيلها تلقائياً في قسم **Packages** بحسابك على GitHub عبر **GitHub Container Registry (`ghcr.io`)**.
-3. يمكنك استخدام الصور المبنية مباشرة على أي سيرفر أو منصة سحابية (مثل Render, Railway, DigitalOcean, VPS).
+### Commands
+1. Build and run containers in the background:
+   ```bash
+   docker compose up --build -d
+   ```
+2. Check logs:
+   ```bash
+   docker compose logs -f
+   ```
+3. Stop services:
+   ```bash
+   docker compose down
+   ```
+
+### Ports and URLs
+* **Frontend Portal**: [http://localhost/](http://localhost/) (Port 80)
+* **Backend API REST**: [http://localhost:8000/api/](http://localhost:8000/api/)
+* **Django Admin**: [http://localhost/admin/](http://localhost/admin/)
+
+---
+
+## 🚀 3. Production Deployment Steps
+
+### Frontend: Vercel
+1. Connect your GitHub repository to your Vercel account.
+2. Select the repository and configure the project:
+   * **Framework Preset**: `Vite` (or `Other`)
+   * **Root Directory**: `frontend/`
+   * **Build Command**: `npm run build`
+   * **Output Directory**: `dist`
+3. Add the following **Environment Variable**:
+   * `VITE_API_URL`: The URL of your live Railway backend (e.g. `https://your-backend.railway.app`)
+
+---
+
+### Backend & Database: Railway
+1. In Railway, click **New Project** and choose **Deploy from GitHub repo**.
+2. Select the repository and specify the subfolder root:
+   * **Root Directory**: `backend/`
+   * *Note: Railway will automatically detect the `Dockerfile` inside `backend/` and build it.*
+3. Provision a **PostgreSQL** database service in the same project.
+4. Link the database to the Django backend. Railway automatically populates the `DATABASE_URL` variable.
+5. Add the remaining required **Environment Variables** in the Railway Dashboard:
+
+| Variable Name | Description | Example / Recommended Value |
+| :--- | :--- | :--- |
+| `DEBUG` | Django debug flag | `False` |
+| `SECRET_KEY` | Django cryptographic key | `your-long-secure-random-string` |
+| `ALLOWED_HOSTS` | Allowed host headers | `your-backend.railway.app,localhost` |
+| `CORS_ALLOW_ALL_ORIGINS`| CORS permission | `True` |
+| `CLOUDINARY_CLOUD_NAME` | Cloudinary credentials | *Your Cloudinary cloud name* |
+| `CLOUDINARY_API_KEY` | Cloudinary credentials | *Your Cloudinary API key* |
+| `CLOUDINARY_API_SECRET` | Cloudinary credentials | *Your Cloudinary API secret* |
+
+---
+
+## 🛠️ 4. CI/CD: GitHub Actions Workflow
+
+On every push or pull request to the `main` branch, the workflow `.github/workflows/docker-ci-cd.yml`:
+1. Audits code syntax and runs builds.
+2. Authenticates with **GitHub Container Registry** (`ghcr.io`).
+3. Compiles the frontend and backend Docker images.
+4. Publishes tagged images to GHCR for deployment.

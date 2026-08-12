@@ -22,7 +22,7 @@
         <mxCell id="m4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#1E8449;fontColor=#1A5E20;fontSize=9;align=left;" value="04 Waste Management Module&#xa;─────────────────&#xa;• Waste Batch Creation&#xa;• Image Upload (Blob Storage)&#xa;• AI Classification Request&#xa;• EWC Code Assignment" vertex="1">
           <mxGeometry height="105" width="245" x="960" y="60" as="geometry" />
         </mxCell>
-        <mxCell id="m5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=9;align=left;" value="05 AI Service Module&#xa;─────────────────&#xa;• CNN/ResNet Classification&#xa;• Material Prediction&#xa;• EWC Code Prediction&#xa;• Recommendation Engine&#xa;• Carbon Saving Estimate" vertex="1">
+        <mxCell id="m5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=9;align=left;" value="05 AI Service Module&#xa;─────────────────&#xa;• EfficientNet-B0 Classification&#xa;• Material Prediction&#xa;• EWC Code Prediction&#xa;• Recommendation Engine&#xa;• Carbon Saving Estimate" vertex="1">
           <mxGeometry height="120" width="245" x="1260" y="60" as="geometry" />
         </mxCell>
         <mxCell id="m6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#2E86C1;fontColor=#1A3C5E;fontSize=9;align=left;" value="06 Marketplace Module&#xa;─────────────────&#xa;• Listing Creation&#xa;• Search &amp; Filter&#xa;• Pricing Engine&#xa;• Transaction Processing" vertex="1">

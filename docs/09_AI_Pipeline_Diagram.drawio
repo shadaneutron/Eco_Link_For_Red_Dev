@@ -16,7 +16,7 @@
         <mxCell id="s3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=10;fontStyle=1;" value="3. Image Preprocessing&#xa;Resize · Normalize · Augment&#xa;OpenCV / PIL Pipeline" vertex="1">
           <mxGeometry height="70" width="300" x="350" y="320" as="geometry" />
         </mxCell>
-        <mxCell id="s4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=10;fontStyle=1;" value="4. CNN / ResNet Classification&#xa;Pre-trained model inference&#xa;Output: class probabilities" vertex="1">
+        <mxCell id="s4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=10;fontStyle=1;" value="4. EfficientNet-B0 Classification&#xa;Pre-trained model inference&#xa;Output: class probabilities" vertex="1">
           <mxGeometry height="70" width="300" x="350" y="440" as="geometry" />
         </mxCell>
         <mxCell id="s5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=10;fontStyle=1;" value="5. Material Prediction&#xa;Top predicted material type&#xa;Confidence Score (%)" vertex="1">
@@ -43,7 +43,7 @@
         <mxCell id="note2" parent="1" style="rounded=1;fillColor=#F5F5F5;strokeColor=#AAAAAA;fontSize=8;dashed=1;" value="FastAPI&#xa;Python microservice" vertex="1">
           <mxGeometry height="45" width="140" x="690" y="200" as="geometry" />
         </mxCell>
-        <mxCell id="note3" parent="1" style="rounded=1;fillColor=#F5F5F5;strokeColor=#AAAAAA;fontSize=8;dashed=1;" value="ResNet-50 / EfficientNet&#xa;PyTorch / TensorFlow" vertex="1">
+        <mxCell id="note3" parent="1" style="rounded=1;fillColor=#F5F5F5;strokeColor=#AAAAAA;fontSize=8;dashed=1;" value="EfficientNet-B0&#xa;PyTorch" vertex="1">
           <mxGeometry height="45" width="140" x="690" y="440" as="geometry" />
         </mxCell>
         <mxCell id="note4" parent="1" style="rounded=1;fillColor=#F5F5F5;strokeColor=#AAAAAA;fontSize=8;dashed=1;" value="Azure ML&#xa;Model Registry" vertex="1">

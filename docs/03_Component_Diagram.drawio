@@ -76,7 +76,7 @@
         <mxCell id="ai1" parent="ai_bg" style="rounded=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontSize=9;" value="«component»&#xa;ImagePreprocessor" vertex="1">
           <mxGeometry height="45" width="175" x="20" y="50" as="geometry" />
         </mxCell>
-        <mxCell id="ai2" parent="ai_bg" style="rounded=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontSize=9;" value="«component»&#xa;CNNClassifier (ResNet)" vertex="1">
+        <mxCell id="ai2" parent="ai_bg" style="rounded=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontSize=9;" value="«component»&#xa;EfficientNet-B0 Classifier" vertex="1">
           <mxGeometry height="45" width="175" x="215" y="50" as="geometry" />
         </mxCell>
         <mxCell id="ai3" parent="ai_bg" style="rounded=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontSize=9;" value="«component»&#xa;EWC CodePredictor" vertex="1">

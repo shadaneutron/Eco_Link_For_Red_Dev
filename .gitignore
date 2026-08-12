@@ -26,3 +26,19 @@ venv/
 .venv/
 backend/.env
 .env
+
+# Environments
+.env.*
+backend/.env.*
+frontend/.env.*
+!*.example
+!backend/*.example
+!frontend/*.example
+
+# Static Files
+staticfiles/
+backend/staticfiles/
+
+# Deployment Metadata
+.vercel/
+.railway/

@@ -21,7 +21,7 @@ The Eco Link platform follows a decoupled, service-oriented architecture with a 
   * Encapsulates atomic multi-stage business operations (`db_transaction.atomic()`).
   * Controls corporate anonymity filtering for market integrity during active bidding.
 * **Integrated Sub-Modules**:
-  * **PyTorch AI Classifier (`core.ai`)**: Fine-tuned ResNet-50 vision model that automatically classifies uploaded industrial waste images, assigns European Waste Catalogue (EWC) codes, estimates hazard levels, and calculates CO2 avoidance potential.
+  * **PyTorch AI Classifier (`core.ai`)**: Fine-tuned EfficientNet-B0 vision model that automatically classifies uploaded industrial waste images, assigns European Waste Catalogue (EWC) codes, estimates hazard levels, and calculates CO2 avoidance potential.
   * **Recommendation Engine (`core.recommendations`)**: Rule-based scoring engine that evaluates active listings against Recycler profile materials, geographic proximity, historical bid quantities, and quality metrics to serve top relevant recommendations.
   * **Digital Product Passport Generator (`core.dpp`)**: Generates standardized, tamper-evident JSON passports and exports downloadable regulatory compliance PDF certificates via ReportLab.
 * **Database Layer (PostgreSQL)**:

@@ -106,7 +106,7 @@
         <mxCell id="L4a" parent="L4" style="rounded=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=9;fontStyle=1;" value="Image Preprocessing" vertex="1">
           <mxGeometry height="48" width="175" x="20" y="36" as="geometry" />
         </mxCell>
-        <mxCell id="L4b" parent="L4" style="rounded=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=9;fontStyle=1;" value="CNN/ResNet Classification" vertex="1">
+        <mxCell id="L4b" parent="L4" style="rounded=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=9;fontStyle=1;" value="EfficientNet-B0 Classification" vertex="1">
           <mxGeometry height="48" width="175" x="215" y="36" as="geometry" />
         </mxCell>
         <mxCell id="L4c" parent="L4" style="rounded=1;fillColor=#E8DAEF;strokeColor=#7D3C98;fontColor=#5B2C6F;fontSize=9;fontStyle=1;" value="Material Prediction" vertex="1">
