@@ -273,7 +273,6 @@ Eco_Link_For_Red_Dev/
 ## 📚 13. Documentation & Technical Reports
 
 * 📄 [**Backend Engineering Documentation (`docs/backend-documentation.md`)**](docs/backend-documentation.md): Comprehensive database layouts, API structures, permission setups, and JSON mock payloads.
-* 📄 [**Phase 3 Technical Report PDF (`docs/technical-report/Eco_Link_Database_Backend_Technical_Report.pdf`)**](docs/technical-report/Eco_Link_Database_Backend_Technical_Report.pdf): Exhaustive ESG analysis and system sequence breakdowns.
 
 ---
 
